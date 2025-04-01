@@ -1,6 +1,7 @@
 // TASK: import helper functions from utils
 // TASK: import initialData
-
+import {initialData} from './initialData.js';
+import {getTasks, createNewTask, patchTask, putTask, deleteTask} from './utils/taskFunctions.js';
 
 /*************************************************************************************************************************************************
  * FIX BUGS!!!
@@ -18,7 +19,7 @@ function initializeData() {
 
 // TASK: Get elements from the DOM
 const elements = {
-
+  
 }
 
 let activeBoard = ""
