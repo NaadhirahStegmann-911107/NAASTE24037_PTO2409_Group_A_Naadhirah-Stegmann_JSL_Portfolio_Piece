@@ -9,13 +9,18 @@ import {getTasks, createNewTask, patchTask, putTask, deleteTask} from './utils/t
 
 // Function checks if local storage already has data, if not it loads initialData to localStorage
 function initializeData() {
-  if (!localStorage.getItem('tasks')) {
+  if (!localStorage.getItem('tasks') || localStorage.getItem('tasks') === 'null') {
+    if (typeof initialData !== 'undefined') {
     localStorage.setItem('tasks', JSON.stringify(initialData)); 
     localStorage.setItem('showSideBar', 'true')
   } else {
+    connsole.error('Error: initialData is not defined');
+   }
+   } else {
     console.log('Data already exists in localStorage');
   }
 }
+initializeData(); // Call the function to initialize data
 
 // TASK: Get elements from the DOM
 const elements = {
