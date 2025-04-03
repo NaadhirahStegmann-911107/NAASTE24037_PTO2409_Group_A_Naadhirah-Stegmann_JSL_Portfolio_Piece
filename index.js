@@ -14,7 +14,7 @@ function initializeData() {
     localStorage.setItem('tasks', JSON.stringify(initialData)); 
     localStorage.setItem('showSideBar', 'true')
   } else {
-    connsole.error('Error: initialData is not defined');
+    console.error('Error: initialData is not defined');
    }
    } else {
     console.log('Data already exists in localStorage');
@@ -24,7 +24,63 @@ initializeData(); // Call the function to initialize data
 
 // TASK: Get elements from the DOM
 const elements = {
-  
+  navSideBar: document.getElementById('side-bar-div'),
+  sideLogo: document.getElementById('side-logo'),
+  boardsNav: document.getElementById('boards-nav-links-div'),
+  sideBarButton: document.getElementsByClassName('toggle-div'),
+  hideSideBarBtn: document.getElementById('hide-sidebar-btn'),
+  showSideBarBtn: document.getElementById('show-sidebar-btn'),
+  headerName: document.getElementById('header-name'),
+  headerBoardName: document.getElementById('header-board-name'),
+  dropDownBtn: document.getElementById('drop-down-btn'),
+  addTaskBtn: document.getElementById('add-new-task-btn'),
+  editBtn: document.getElementById('dit-board-btn'),
+  editBoardDiv: document.getElementsByClassName('editBtnsDiv'),
+  editBtns: document.getElementById('deleteBoardBtn'),
+  container: document.getElementsByClassName('card-column-main'),
+  columnDiv: document.getElementsByClassName('column-div'),
+  todoHead: document.getElementById('todo-head-div'),
+  toDoDot: document.getElementById('todo-dot'),
+  columnnHead: document.getElementById('toDoText'),
+  toDoTasks: document.getElementsByClassName('tasks-container'),
+  columnDiv: document.getElementsByClassName('column-div'),
+  doingHead: document.geteElementById('doing-head-div'),
+  doingDot: document.getElementById('doing-dot'),
+  doingText: document.getElementById('doingText'),
+  doingTasks: document.getElementsByClassName('tasks-container'),
+  doneColumn: document.getElementsByClassName('column-div'),
+  doneHead: document.getElementById('done-head-div'),
+  doneDot: document.getElementById('done-dot'),
+  doneText: document.getElementById('doneText'),
+  doneTasks: document.getElementsByClassName('tasks-container'),
+  newTaskModal: document.getElementById('new-task-modal-window'),
+  newInputDiv: document.getElementsByClassName('input-div'),
+  modalTitleInput: document.getElementById('modal-title-input'),
+  newTextInput: document.getElementById('title-input'),
+  inputDiv: document.getElementsByClassName('input-div'),
+  descriptionInput: document.getElementById('modal-desc-input'),
+  newTextArea: document.getElementById('desc-input'),
+  selectInput: document.getElementsByClassName('input-div'),
+  modalSelectStatus: document.getElementById('modal-select-status'),
+  newSelectStatus: document.getElementById('select-status'),
+  newButtons: document.getElementsByClassName('button-group'),
+  createTaskBtn: document.getElementById('create-task-btn'),
+  cancelAddTaskBtn: document.getElementById('cancel-add-task-btn'),
+  editTaskModal: document.getElementsByClassName('edit-task-modal-window'),
+  editForm: document.getElementById('edit-task-form'),
+  editTaskDiv: document.getElementById('edit-task-header'),
+  editInput: document.getElementById('edit-task-title-input'),
+  editBtn: document.getElementById('edit-btn'),
+  editTask: document.getElementsByClassName('edit-task-div'),
+  editTextArea: document.getElementById('edit-task-desc-input'),
+  editDiv: document.getElementsByClassName('edit-task-div'),
+  editLabel: document.getElementsByClassName('label-modal-window'),
+  editSelectStatus: document.getElementById('edit-select-status'),
+  editButtons: document.getElementsByClassName('edit-task-div-button-group'),
+  editSaveBtn: document.getElementById('save-task-changes-btn'),
+  editCancelBtn: document.getElementById('cancel-edit-btn'),
+  editDeleteBtn: document.getElementById('delete-task-btn'),
+  filterDiv: document.getElementById('filter-div'),
 }
 
 let activeBoard = ""
@@ -37,8 +93,9 @@ function fetchAndDisplayBoardsAndTasks() {
   displayBoards(boards);
   if (boards.length > 0) {
     const localStorageBoard = JSON.parse(localStorage.getItem("activeBoard"))
-    activeBoard = localStorageBoard ? localStorageBoard ;  boards[0]; 
-    elements.headerBoardName.textContent = activeBoard
+    activeBoard = localStorageBoard ? localStorageBoard.boards[0]
+    
+    (headerBoardName.textContent = activeBoard() );
     styleActiveBoard(activeBoard)
     refreshTasksUI();
   }
@@ -53,7 +110,7 @@ function displayBoards(boards) {
     const boardElement = document.createElement("button");
     boardElement.textContent = board;
     boardElement.classList.add("board-btn");
-    boardElement.click()  { 
+    boardElement.click() { 
       elements.headerBoardName.textContent = board;
       filterAndDisplayTasksByBoard(board);
       activeBoard = board //assigns active board
@@ -93,7 +150,7 @@ function filterAndDisplayTasksByBoard(boardName) {
       // Listen for a click event on each task and open a modal
       taskElement.click() => { 
         openEditTaskModal(task);
-      });
+      };
 
       tasksContainer.appendChild(taskElement);
     });
@@ -243,7 +300,7 @@ function saveTaskChanges(taskId) {
   // Create an object with the updated task details
 
 
-  // Update task using a hlper functoin
+  // Update task using a helper function
  
 
   // Close the modal and refresh the UI to reflect the changes
