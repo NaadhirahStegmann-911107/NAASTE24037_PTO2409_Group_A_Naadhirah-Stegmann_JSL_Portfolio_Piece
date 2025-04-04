@@ -83,6 +83,7 @@ const elements = {
   filterDiv: document.getElementById('filter-div'),
 }
 
+
 let activeBoard = ""
 
 // Extracts unique board names from tasks
@@ -92,10 +93,11 @@ function fetchAndDisplayBoardsAndTasks() {
   const boards = [...new Set(tasks.map(task => task.board).filter(Boolean))];
   displayBoards(boards);
   if (boards.length > 0) {
-    const localStorageBoard = JSON.parse(localStorage.getItem("activeBoard"))
-    activeBoard = localStorageBoard ? localStorageBoard.boards[0]
+    const localStorageBoard = JSON.parse(localStorage.getItem("activeBoard"));
+
+    let activeBoard = localStorageBoard ? localStorageBoard.boards[0] : boards[0]; // Default to the first board if none is set in localStorage
     
-    (headerBoardName.textContent = activeBoard() );
+    headerBoardName.textContent = activeBoard() // Sets the header board name to the active board;
     styleActiveBoard(activeBoard)
     refreshTasksUI();
   }
