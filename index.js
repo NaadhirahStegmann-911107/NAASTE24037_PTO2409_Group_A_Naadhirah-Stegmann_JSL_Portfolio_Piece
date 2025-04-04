@@ -112,14 +112,14 @@ function displayBoards(boards) {
     const boardElement = document.createElement("button");
     boardElement.textContent = board;
     boardElement.classList.add("board-btn");
-    boardElement.addEventLstener("click"()) => { 
+    boardElement.addEventListener("click", () => { 
       elements.headerBoardName.textContent = board;
-      filterAndDisplayTasksByBoard(board);
+      () => filterAndDisplayTasksByBoard(board);
       //Assign active board
       let activeBoard = board; //assigns active board
       localStorage.setItem("activeBoard", JSON.stringify({board})); // Store the active board in local storage
       styleActiveBoard(activeBoard)
-    };
+    });
     boardsContainer.appendChild(boardElement); // Append the button to the container
   });
 
