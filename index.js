@@ -200,7 +200,11 @@ function addTaskToUI(task) {
   taskElement.textContent = task.title; // Modify as needed
   taskElement.setAttribute('data-task-id', task.id);
   
-  tasksContainer.appendChild(); 
+  tasksContainer.appendChild(taskElement); // Append the new task element to the tasks container
+  taskElement.addEventListener('click', () => {
+    openEditTaskModal(task); // Open the edit task modal when clicked
+  } );
+  // Clear the input fields after adding the task 
 }
 
 
