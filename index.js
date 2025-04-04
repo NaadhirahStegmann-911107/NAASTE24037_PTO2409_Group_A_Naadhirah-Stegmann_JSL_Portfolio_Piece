@@ -238,7 +238,7 @@ function setupEventListeners() {
   elements.themeSwitch.addEventListener('change', toggleTheme);
 
   // Show Add New Task Modal event listener
-  elements.createNewTaskBtn.addEventListener('click', () => {
+  elements.createTaskBtn.addEventListener('click', () => {
     toggleModal(true);
     elements.filterDiv.style.display = 'block'; // Also show the filter overlay
   });
@@ -311,7 +311,7 @@ function toggleTheme() {
 function openEditTaskModal(task) {
 
   // Set task details in modal inputs
-  elementss.editInput.value = task.title;
+  elements.editInput.value = task.title;
   elements.editTextArea.value = task.description;
   elements.editSelectStatus.value = task.status;
 
@@ -325,7 +325,7 @@ function openEditTaskModal(task) {
   };
 
   // Delete task using a helper function and close the task modal
- elementss.editDeleteBtn.onclick = () => {
+ elements.editDeleteBtn.onclick = () => {
   const deleteModal = document.getElementById('delete-task-modal');
   const confirmDeleteBtn = document.getElementById('confirm-delete-btn');
   const cancelDeleteBtn = document.getElementById('cancel-delete-btn');
