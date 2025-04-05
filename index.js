@@ -99,7 +99,7 @@ function fetchAndDisplayBoardsAndTasks() {
     const localStorageBoard = JSON.parse(localStorage.getItem("activeBoard"));
 
     activeBoard = localStorageBoard ? boards[0] : (elements.headerBoardName.textContent);
-    styleActiveBoard(activeBoard)
+    styleActiveBoard(activeBoard);
     refreshTasksUI();
   }
 }
@@ -169,13 +169,13 @@ function refreshTasksUI() {
 // Styles the active board by adding an active class
 // TASK: Fix Bugs
 function styleActiveBoard(boardName) {
-  document.querySelectorAll('.board-btn').foreEach(btn => { 
+  document.querySelectorAll('.board-btn').forEach(btn => { 
     
     if(btn.textContent === boardName) {
       btn.classList.add('active') 
     }
     else {
-      btn.clasList.remove('active'); 
+      btn.classList.remove('active'); 
     }
   });
 }
@@ -244,7 +244,7 @@ function setupEventListeners() {
   });
 
   // Add new task form submission event listener
-  elements.modalWindow.addEventListener('submit',  (event) => {
+  elements.newTaskModal.addEventListener('submit', (event) => {
     addTask(event)
   });
 }
