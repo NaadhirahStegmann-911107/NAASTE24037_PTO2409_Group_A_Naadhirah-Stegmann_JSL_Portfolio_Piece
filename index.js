@@ -89,7 +89,7 @@ function fetchAndDisplayBoardsAndTasks() {
   displayBoards(boards);
   if (boards.length > 0) {
     const localStorageBoard = JSON.parse(localStorage.getItem("activeBoard"));
-    activeBoard = localStorageBoard ? localStorageBoard.activeboards :boards[0];
+    activeBoard = localStorageBoard ? localStorageBoard.activeboards : boards[0];
     elements.headerBoardName.textContent = activeBoard
     styleActiveBoard(activeBoard)
     refreshTasksUI();
@@ -155,7 +155,6 @@ function refreshTasksUI() {
 // TASK: Fix Bugs
 function styleActiveBoard(boardName) {
   document.querySelectorAll('.board-btn').forEach(btn => { 
-    
     btn.classList.remove('active-board-btn');
     if(btn.textContent === boardName) {
       btn.classList.add('active');
@@ -220,7 +219,7 @@ function setupEventListeners() {
 
 // Toggles tasks modal
 // Task: Fix bugs
-function toggleModal(show, modal = elements.modalWindow) {
+function toggleModal(show, modal = elements.newTaskModal) {
   modal.style.display = show ? 'block':'none'; 
 }
 
@@ -321,6 +320,7 @@ function openEditTaskModal(task) {
 
     init();
   };
+  refreshTasksUI();
  };
 };
 
