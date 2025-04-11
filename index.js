@@ -76,7 +76,7 @@ const elements = {
   editDiv: document.querySelector('.edit-task-div'),
   editLabel: document.querySelector('.label-modal-window'),
   editSelectStatus: document.getElementById('edit-select-status'),
-  editButtons: document.querySelectorAll('.edit-task-div-button-group'), // Fixed selector
+  editButtons: document.querySelectorAll('.edit-task-div-button-group'), 
   editSaveBtn: document.getElementById('save-task-changes-btn'),
   editCancelBtn: document.getElementById('cancel-edit-btn'),
   cancelDeleteBtn: document.getElementById('delete-task-btn'),
